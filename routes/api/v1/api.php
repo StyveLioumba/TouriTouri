@@ -19,3 +19,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::apiResource('/departements','App\Http\Controllers\Api\v1\DepartementController');
+Route::apiResource('/sites','App\Http\Controllers\Api\v1\SiteController');

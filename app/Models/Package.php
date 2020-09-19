@@ -5,13 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Site extends Model
+class Package extends Model
 {
     use HasFactory;
 
-    public function departement()
+    public function site()
     {
-        return $this->belongsTo(departement::class, 'site_id');
+        return $this->belongsTo(Site::class, 'package_id');
     }
-
 }

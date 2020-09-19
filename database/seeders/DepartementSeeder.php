@@ -15,8 +15,8 @@ class DepartementSeeder extends Seeder
      */
     public function run()
     {
-        for ($i=0;$i<50;$i++){
-            DB::table('tb_departement')->insert([
+        for ($i=0;$i<10;$i++){
+            DB::table('departements')->insert([
                 'nom' => Str::random(10),
                 'image' => Str::random(10).'.png'
             ]);
