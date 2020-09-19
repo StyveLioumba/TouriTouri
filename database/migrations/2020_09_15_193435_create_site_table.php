@@ -13,13 +13,13 @@ class CreateSiteTable extends Migration
      */
     public function up()
     {
-        Schema::create('tb_site', function (Blueprint $table) {
+        Schema::create('sites', function (Blueprint $table) {
             $table->id();
             $table->string('nom',255);
             $table->text('description');
             $table->string('image',255);
             $table->string('rating',50);
-            $table->foreignId('departement_id')->constrained('tb_departement')->onDelete('cascade');
+            $table->foreignId('departement_id')->constrained()->cascadeOnDelete();
             $table->timestamps();
         });
     }
@@ -31,6 +31,6 @@ class CreateSiteTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tb_site');
+        Schema::dropIfExists('sites');
     }
 }

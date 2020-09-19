@@ -13,12 +13,11 @@ class CreateRatingTable extends Migration
      */
     public function up()
     {
-        Schema::create('tb_rating', function (Blueprint $table) {
+        Schema::create('ratings', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('site_id');
-            $table->foreign('site_id')->references('id')->on('tb_site');
-            $table->foreignId('user_id')->nullable()->constrained();
             $table->string('nom',255)->nullable();
+            $table->foreignId('site_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->timestamps();
         });
     }
@@ -30,6 +29,6 @@ class CreateRatingTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tb_rating');
+        Schema::dropIfExists('ratings');
     }
 }

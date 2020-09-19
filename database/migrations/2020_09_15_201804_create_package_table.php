@@ -13,12 +13,12 @@ class CreatePackageTable extends Migration
      */
     public function up()
     {
-        Schema::create('tb_package', function (Blueprint $table) {
+        Schema::create('packages', function (Blueprint $table) {
             $table->id();
             $table->string('nom',255);
             $table->string('image',255);
             $table->enum('categorie',['restaurant','boutique','deplacement']);
-            $table->foreignId('site_id')->constrained('tb_site');
+            $table->foreignId('site_id')->constrained();
             $table->timestamps();
         });
     }
@@ -30,6 +30,6 @@ class CreatePackageTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tb_package');
+        Schema::dropIfExists('packages');
     }
 }

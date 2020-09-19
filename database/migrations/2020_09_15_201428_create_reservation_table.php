@@ -13,12 +13,12 @@ class CreateReservationTable extends Migration
      */
     public function up()
     {
-        Schema::create('tb_reservation', function (Blueprint $table) {
+        Schema::create('reservations', function (Blueprint $table) {
             $table->id();
             $table->integer('nbre_place');
             $table->date('dates');
             $table->foreignId('user_id')->constrained();
-            $table->foreignId('site_id')->constrained('tb_site');
+            $table->foreignId('site_id')->constrained();
             $table->timestamps();
         });
     }
@@ -30,6 +30,6 @@ class CreateReservationTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tb_reservation');
+        Schema::dropIfExists('reservations');
     }
 }

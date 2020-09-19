@@ -13,10 +13,10 @@ class CreateCommentaireTable extends Migration
      */
     public function up()
     {
-        Schema::create('tb_commentaire', function (Blueprint $table) {
+        Schema::create('commentaires', function (Blueprint $table) {
             $table->id();
             $table->text('contenue');
-            $table->foreignId('site_id')->constrained('tb_site');
+            $table->foreignId('site_id')->constrained();
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ class CreateCommentaireTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tb_commentaire');
+        Schema::dropIfExists('commentaires');
     }
 }

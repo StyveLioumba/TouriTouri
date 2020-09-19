@@ -13,7 +13,7 @@ class CreateDepartementTable extends Migration
      */
     public function up()
     {
-        Schema::create('tb_departement', function (Blueprint $table) {
+        Schema::create('departements', function (Blueprint $table) {
             $table->id();
             $table->string('nom',100);
             $table->string('image',255)->nullable();
@@ -28,6 +28,6 @@ class CreateDepartementTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tb_departement');
+        Schema::dropIfExists('departements');
     }
 }
